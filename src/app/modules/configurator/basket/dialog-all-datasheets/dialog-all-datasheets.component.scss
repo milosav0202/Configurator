@@ -1,0 +1,31 @@
+.datasheets-dialog {
+  padding: 50px;
+  text-align: center;
+}
+
+.content {
+  height: 300px;
+  overflow: auto;
+}
+
+mat-tree-node {
+  height: 25px;
+  min-height: 25px;
+}
+
+.node-style {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.sheet{
+  margin-left: 5px;
+  font-size: 15px;
+  text-decoration: underline;
+  color: blue;
+}
+
+button:focus {
+  outline: none;
+}

@@ -1,0 +1,98 @@
+<app-navigation></app-navigation>
+<div class="content">
+  <div class="row">
+    <div class="col-sm-7" style="margin-bottom: 150px">
+      <h1>{{'BASKET' | translate}}
+        <div class="float-right" *ngIf="order?.positions.length > 0">
+          <button class="btn margin_r20" (click)="onDialogAllDatasheets()">{{'ALL_DATASHEETS' | translate}}</button>
+          <button class="btn  margin_r20" (click)="onPrint()">{{'PRINT_OVERVIEW' | translate}}</button>
+          <button class="btn margin_r20" (click)="onExpandCollaps(!expand)">
+            <i [hidden]="expand" class="material-icons">add</i>
+            <i [hidden]="!expand" class="material-icons">remove</i>
+          </button>
+          <button class="btn" (click)="onDeleteBasket()"><i class="material-icons">delete</i></button>
+        </div>
+      </h1>
+      <h3>{{'OVERVIEW' | translate}}</h3>
+      <ul class="position accordion" *ngFor="let position of order?.positions">
+        <li>
+          <div (click)="position.visible = !position.visible">
+            <i [hidden]="position.visible" class="material-icons icon">add</i>
+            <i [hidden]="!position.visible" class="material-icons icon">remove</i>
+            {{position.name | translate}}
+          </div>
+          <div class="float-right" [hidden]="!position.price || !user?.price" style="margin-top: -35px">{{position.price}} {{config?.currency}}</div>
+          <mat-divider class="divider-thick"></mat-divider>
+          <div *ngIf="position.visible">
+            <ul class="accordion" *ngFor="let product of position?.products" [ngStyle]="{'color': product.color}">
+              <li>
+                <div class="row" (click)="product.visible = !product.visible">
+                  <div class="col-5" >
+                    <i [hidden]="product.visible" class="material-icons icon">add</i>
+                    <i [hidden]="!product.visible" class="material-icons icon">remove</i>
+                    {{product.tab | translate}}
+                  </div>
+                  <div class="col-3" style="color: #5C5B5B"><a (click)="editProduct(product)">{{'EDIT' | translate}}</a></div>
+                  <div class="col-3" style="color: #5C5B5B"><a (click)="removeProduct(product)">{{'DELETE' | translate}}</a></div>
+                </div>
+                <div class="float-right" [hidden]="!product.price || !user?.price" style="margin-top: -35px">{{product.price}} {{config?.currency}}</div>
+                <mat-divider class="divider-thick" [ngStyle]="{'border-color': product.color}"></mat-divider>
+                <div class="product" *ngIf="product.visible">
+                  <app-items-view [overviewData]="product"></app-items-view>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <ul class="position accordion fixed-bottom" [hidden]="!user?.price" *ngIf="order?.positions?.length > 0">
+        <li class="priceBottom">
+          <mat-divider class="divider-thick"></mat-divider>
+          <div [hidden]="!order.priceRecycling">{{'RECYCLING_TAX' | translate}}</div>
+          <div class="float-right" [hidden]="!order.priceRecycling" style="margin-top: -35px">{{order?.priceRecycling}} {{config?.currency}}</div>
+          <div>{{config.textPrice}}</div>
+          <div class="float-right" style="margin-top: -35px">{{order?.price}} {{config?.currency}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-5 aside fixed-overview">
+      <mat-radio-group [(ngModel)]="order.orderType">
+        <mat-radio-button style="margin-right: 30px" value="offer">{{'OFFER' | translate}}</mat-radio-button>
+        <mat-radio-button style="margin-right: 30px" value="order" [hidden]="!user">{{'ORDER' | translate}}</mat-radio-button>
+      </mat-radio-group>
+      <mat-checkbox [hidden]="order.orderType === 'offer'" [(ngModel)]="order.fastline" name="fastline" value="fastline">{{'FASTLINE' | translate}}</mat-checkbox>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="form">
+        <div class="form-group">
+          <input placeholder="{{'COMMISSION' | translate}}" type="text" name="commission" class="form-control" [(ngModel)]="order.commission"/>
+        </div>
+        <div class="form-group">
+          <label for="comment" class="control-label">{{'COMMENT' | translate}}</label>
+          <textarea class="form-control" maxlength="125" rows="4" (change)="onCommentChange($event)" id="comment" placeholder="{{'COMMENT_PLACEHOLDER' | translate}}"></textarea>
+        </div>
+        <div class="form-group">
+          <mat-checkbox [(ngModel)]="showDeliveryAddress" name="deliverAddress">{{'CHANGE_DELIVER_ADDRESS' | translate}}</mat-checkbox>
+        </div>
+        <div [hidden]="!showDeliveryAddress">
+          <div class="form-group" >
+            <input placeholder="{{'FIRSTNAME_LASTNAME' | translate}}" type="text" name="name" class="form-control" [(ngModel)]="order.deliverAddress.name" />
+          </div>
+          <div class="form-group" >
+            <input placeholder="{{'ZHD' | translate}}" type="text" name="zhd" class="form-control" [(ngModel)]="order.deliverAddress.zhd" />
+          </div>
+          <div class="form-group" >
+            <input placeholder="{{'STREET' | translate}}" type="text" name="street" class="form-control" [(ngModel)]="order.deliverAddress.street" />
+          </div>
+          <div class="form-group" >
+            <input placeholder="{{'POSTCODE' | translate}}" type="text" name="postcode" class="form-control" [(ngModel)]="order.deliverAddress.postcode" />
+          </div>
+          <div class="form-group" >
+            <input placeholder="{{'CITY' | translate}}" type="text" name="city" class="form-control" [(ngModel)]="order.deliverAddress.city" />
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">{{order.orderType.toUpperCase() | translate}} {{'SEND' | translate}}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

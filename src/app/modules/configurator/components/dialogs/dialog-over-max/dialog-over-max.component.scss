@@ -1,0 +1,23 @@
+.over-max-alert {
+    color: #93C11C;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.alert-content {
+    padding: 20px;
+}
+
+.alert-buttons {
+    margin: 10px 350px;
+
+    button {
+        margin-right: 20px;
+        background-color: #93C11C;
+        color: white;
+        padding: 5px 10px;
+        border-width: 0px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+}

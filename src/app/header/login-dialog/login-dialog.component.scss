@@ -1,0 +1,30 @@
+@import '../../../_variables.scss';
+
+.container {
+  background-color: #E6E6E6;
+}
+
+.pwSent {
+  font-size: 20px;
+  color: $colorGreen;
+  text-align: center;
+  i {
+    font-size: 80px;
+  }
+}
+
+.formDiv{
+  padding: 50px;
+}
+
+.form-group{
+
+  input {
+    font-size: 25px;
+    height: 50px;
+  }
+}
+
+.error{
+  border: solid thick red;
+}

@@ -1,0 +1,17 @@
+<div>
+  <div class="row">
+    <ul class="settingsImages">
+      <li>
+        <img class="imgProduct" src="{{itemData?.itemImage}}" alt="">
+      </li>
+      <span *ngIf="itemData?.length2Vis">{{'LENGTHL2' | translate}}<span>: {{itemData?.lengthL2}} {{itemData?.unitL2}}</span></span>
+    </ul>
+  </div>
+  <div [hidden]="!itemData?.length3Vis">
+    <mat-divider class="divider-thin"></mat-divider>
+    <div class="length1">
+      {{'LENGTHL3' | translate}}<span>: {{itemData?.lengthL3}}<span> {{itemData?.unitL3}}</span></span>
+    </div>
+  </div>
+  <mat-divider class="divider-thick"></mat-divider>
+</div>

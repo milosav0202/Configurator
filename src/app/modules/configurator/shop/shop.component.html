@@ -1,0 +1,17 @@
+<app-navigation></app-navigation>
+<div class="content config">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="group-list" >
+        <app-carousel [imagesData]="subGroupImages" [type]="'big'" (imgClick)="selectedGroup=$event.name" [color]="color"></app-carousel>
+      </div>
+      <div class="row settings-container">
+        <app-settings [subGroup]="selectedGroup" [product]="product" [color]="color" [pageInfo]="pageInfo"></app-settings>
+      </div>
+    </div>
+    <div class="col-sm-5 fixed-overview">
+      <app-aside-overview (busketEvent)="busketEventHandler($event)" [product]="product" [order]="order"></app-aside-overview>
+    </div>
+  </div>
+</div>
+<app-order-view></app-order-view>

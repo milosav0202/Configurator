@@ -1,0 +1,5 @@
+<div style="text-align: center; padding: 50px">
+  <textarea [rows]="atText.split('\r\n').length + 5" #textarea [(ngModel)]="atText"></textarea>
+  <input type="button" class="btn" style="margin-right: 20px" (click)="dialog.close()" value="{{'CANCEL' | translate}}">
+  <input type="button" class="btn" (click)="selectText()" value="{{'COPY_CLIPBOARD' | translate}}">
+</div>

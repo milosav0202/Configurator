@@ -1,0 +1,22 @@
+.content{
+  padding-top: 20px;
+}
+
+.group-list {
+  background-color: white;
+  padding-left: 30px;
+  margin-left: -15px;
+}
+
+.settings-container{
+  padding: 20px 0px;
+  app-settings {
+    width: 100%;
+    padding-right: 15px;
+  }
+}
+
+.fixed-overview {
+  position: fixed;
+  left: 57%;
+}

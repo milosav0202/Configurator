@@ -1,0 +1,13 @@
+<app-header (lanChanged)="changeLanguage($event)" [language]="language"></app-header>
+<div *ngIf="!contentLoaded">
+  <mat-progress-spinner style="margin:20% auto;" [mode]="'indeterminate'"></mat-progress-spinner>
+</div>
+<div *ngIf="connectionError">
+  <div class="errorContent">
+    <h3>{{'SERVER_NOT_REACHABLE' | translate}}</h3>
+    <h3>{{'TRY_LATER_AGAIN' | translate}}</h3>
+  </div>
+</div>
+<div style="margin-top: 200px;">
+  <router-outlet></router-outlet>
+</div>

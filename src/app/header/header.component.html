@@ -1,0 +1,48 @@
+<div class="container-fluid header-container fixed-top" >
+  <div class="row">
+    <div class="col-sm-3 header-height d-flex flex-wrap align-items-center">
+      <a [routerLink]="['/configurator/home']"><img class="img-fluid image-logo" src="assets/customers/{{customer}}/images/common/logo.png" alt="logo"></a>
+    </div>
+    <div class="col-sm-9">
+      <div class="d-flex justify-content-end">
+        <a mat-button [routerLink]="['/downloads']">{{'DOWNLOADS'|translate}}</a>
+        <a *ngIf="user && user.token" mat-button [routerLink]="['/my-account']">{{'MYACCOUNT'|translate}}</a>
+        <a *ngIf="!user" mat-button (click)="openLoginDialog()">{{'LOGINREGISTER'|translate}}</a>
+        <a *ngIf="user" mat-button (click)="openLogoutDialog()">{{user.mail}}</a>
+        <a mat-button href="{{imprint}}" target="_blank">{{'IMPRINT'|translate}}</a>
+        <a mat-button>{{'LANGUAGE' | translate}} : {{language}}
+        </a>
+      </div>
+      <div class="d-flex justify-content-end">
+        <div class="search-form">
+          <form>
+            <mat-form-field style="width: 350px;" floatLabel="never">
+                <input type="text" placeholder="{{'SEARCHPLACEHOLDER'| translate }}" aria-label="Number"  matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <button mat-button  matSuffix mat-icon-button aria-label="Search" (click)="search(myControl.value)">
+                  <i class="material-icons">
+                    search
+                  </i>
+                </button>
+                <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="myControl.setValue('')">
+                  <mat-icon>close</mat-icon>
+                </button>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let artikel of filteredOptions  | async" [value]="artikel" (click)="search(myControl.value)">
+                  {{artikel}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="vertical-align-center basket">
+          <div class="divBasket">
+            <a class="nav-link" [routerLink]="['/configurator/basket']" ><i class="material-icons basketImg">shopping_basket</i></a>
+            <div [hidden]="!countVisible" class="cicle">
+              <a>{{itemCount}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

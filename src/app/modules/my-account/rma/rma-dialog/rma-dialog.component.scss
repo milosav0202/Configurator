@@ -1,0 +1,49 @@
+@import '../../../../../_variables.scss';
+
+.container{
+  width: 500px
+}
+
+.form {
+  padding: 10px;
+}
+
+file-drop{
+  height: 30px;
+}
+
+.successfully-sent-rma{
+  text-align: center;
+  font-size: 30px;
+  color: $colorGreen;
+
+  .material-icons{
+    font-size: 70px;
+  }
+}
+
+.dropdown{
+  font-size: 20px;
+  font-weight: normal;
+  option {
+    font-size: 20px;
+  }
+}
+
+.circleBase {
+  border-radius: 50%;
+  width: 49px;
+  height: 49px;
+  z-index: 99999;
+  position: absolute;
+  margin-left: 480px;
+  margin-top: -50px;
+  background: $colorGreen;
+  color: white;
+  cursor: pointer;
+
+  i {
+    font-size: 50px;
+    font-weight: bolder;
+  }
+}

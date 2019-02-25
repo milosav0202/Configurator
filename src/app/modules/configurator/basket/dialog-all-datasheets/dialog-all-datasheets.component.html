@@ -1,0 +1,31 @@
+<div class="datasheets-dialog">
+  <div class="content">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        <mat-checkbox class="checklist-leaf-node"
+                      [checked]="checklistSelection.isSelected(node)"
+                      (change)="todoLeafItemSelectionToggle(node)"></mat-checkbox><span class="node-style">{{node.item.name}}</span>
+      </mat-tree-node>
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'toggle ' + node.filename">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'arrow_drop_down' : 'arrow_right'}}
+          </mat-icon>
+        </button>
+        <mat-checkbox [checked]="descendantsAllSelected(node)"
+                      [indeterminate]="descendantsPartiallySelected(node)"
+                      (change)="todoItemSelectionToggle(node)"></mat-checkbox><span class="node-style" matTreeNodeToggle>{{node.item.name}}</span>
+      </mat-tree-node>
+      <mat-tree-node *matTreeNodeDef="let node; when: isSheet" matTreeNodePadding>
+        <button mat-icon-button disabled></button>
+        <mat-checkbox class="checklist-leaf-node"
+                      [checked]="checklistSelection.isSelected(node)"
+                      (change)="todoLeafItemSelectionToggle(node)"></mat-checkbox><a class="sheet" target="_blank" href="{{node.item.link}}">{{node.item.name}}</a>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
+  <input type="button" class="btn" style="margin-right: 20px" (click)="dialog.close()" value="{{'CANCEL' | translate}}">
+  <input type="button" class="btn" (click)="download()" value="{{'DOWNLOAD' | translate}}">
+</div>

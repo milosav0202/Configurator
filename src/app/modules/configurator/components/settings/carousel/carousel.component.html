@@ -1,0 +1,10 @@
+<div class="row carousel carousel-{{type}}" (window:resize)="onResizeWindow()">
+  <mat-icon [hidden]="carouselOff" class="arrow left-arrow" [ngStyle]="{'color': color}" (click) = "onSliderButtonClick(1)">arrow_back_ios</mat-icon>
+  <ul #imgList class="ul-carousel" [style.left.px] = "currentPos">
+    <li *ngFor="let image of _imagesData">
+        <img src="{{image.src}}" alt="{{image.name}}" [class.img-selected]="image.selected" [class.prefered]="image.prefered" (click)="onImageClick(image)">
+        <p *ngIf="image.caption" [ngStyle]="{'color': color}">{{image.caption | translate}}</p>
+    </li>
+  </ul>
+  <mat-icon  [hidden]="carouselOff" class="arrow right-arrow" [ngStyle]="{'color': color}" (click) = "onSliderButtonClick(-1)">arrow_forward_ios</mat-icon>
+</div>

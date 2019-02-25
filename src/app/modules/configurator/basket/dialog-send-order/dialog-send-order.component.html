@@ -1,0 +1,8 @@
+<div *ngIf="inProgress" class="progress-container">
+    <mat-progress-spinner style="margin:20% auto;" [mode]="'indeterminate'"></mat-progress-spinner>
+</div>
+<div *ngIf="!inProgress" class="send-order-dialog">
+  <h1 *ngIf="success">{{"REQUEST" | translate}} {{orderType.toUpperCase() | translate}} {{"HAS_BEEN_SEND" | translate}}</h1>
+  <h1 *ngIf="!success">{{"REQUEST_HAS_BEEN_FAILED" | translate}}</h1>
+  <input type="button" class="btn" style="margin-right: 20px" (click)="dialog.close(success)" value="{{'OK' | translate}}">
+</div>

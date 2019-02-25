@@ -1,0 +1,20 @@
+<div #misc class="container settings-content" [ngStyle]="{'color': color}" (window:resize)="onResizeWindow()">
+  <div class="row" style="height: 100%">
+    <div #image class="col-sm-3 settings-image">
+      <img src="{{settingsData.value.Bild}}">
+    </div>
+    <div class="col-sm-9 settings-details">
+      <select  class="dropdown" [(ngModel)]="settingsData.value" (change)="onItemChange()">
+        <option *ngFor="let product of products" [ngValue]="product">{{product?.ArtikelNrLAG}} | {{product?.Bezeichnung1}}</option>
+      </select>
+      <br/>
+      <p>{{settingsData.value?.Bezeichnung1 | translate}}</p>
+      <p>{{settingsData.value?.Bezeichnung2 | translate}}</p>
+      <p>{{settingsData.value?.Bezeichnung3 | translate}}</p>
+      <p>{{settingsData.value?.Bezeichnung4 | translate}}</p>
+      <p>{{settingsData.value?.Bezeichnung5 | translate}}</p>
+      <p *ngIf="stock" class="stk">{{'STOCK' | translate}}:<span> {{stock}} </span>Stk</p>
+      <p *ngIf="!stock" class="stk">{{'ON_DEMAND' | translate}}</p>
+    </div>
+  </div>
+</div>

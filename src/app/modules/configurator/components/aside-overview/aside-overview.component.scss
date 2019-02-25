@@ -1,0 +1,46 @@
+
+.aside{
+    background-color: white;
+    padding: 15px;
+  
+    h2{
+        color: #000000;
+    }
+}
+  
+.dropdown{
+    width: 100%;
+    font-size: 32px;
+    background-color: #5C5B5B;
+    color: white;
+    padding: 5px;
+    text-align: left;
+    border-width: 0px;
+    border-color: transparent;
+    -webkit-appearance: none;
+    line-height: normal;
+}
+
+.btn{
+  color: white;
+  font-size: 25px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-width: 0;
+  margin: 10px auto;
+}
+
+.add-button-container {
+  padding: 10px;
+  text-align: center;
+}
+  
+.add-busket-button {
+    border-width: 0;
+    margin: 10px auto;
+}
+
+.element{
+    padding: 0px 10px;
+}

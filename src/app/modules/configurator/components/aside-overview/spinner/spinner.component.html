@@ -1,0 +1,8 @@
+<div class="custom-spinner">
+  <div class="price">
+    <span [hidden]="!user?.price || (item?.type === 'profil' && !item.priceVisAfterPower)">{{item?.artikel?.Verkauf1}} / {{item?.artikel?.EinheitPRO.toLowerCase()}}</span>
+  </div>
+  <input type="number" class="input-spinner" [(ngModel)]="inputValue" (change)="onSpinnerButtonClick(inputValue)" placeholder="1"/>
+  <button type="button" class="spinner-button-plus" (click)="onSpinnerButtonClick(inputValue + 1)"><i class="material-icons">add</i></button>
+  <button type="button" class="spinner-button-minus" (click)="onSpinnerButtonClick(inputValue -1)"><i class="material-icons">remove</i></button>
+</div>

@@ -1,0 +1,5 @@
+<div class="d-flex fixed-nav">
+  <div *ngFor="let capture of captures">
+    <a [routerLink]="['/configurator/shop/' + capture['GruppeLAG']]" routerLinkActive="selected"><img class="img-fluid" src="{{capture['NavImage']}}"></a>
+  </div>
+</div>

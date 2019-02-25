@@ -1,0 +1,40 @@
+{
+  "UI": {
+    "hover": {
+      "PDF": "Produkt Datenblatt",
+      "LDT": "Lichtberechnung Datei (Eulumdat)",
+      "TXT": "Ausschreibungstext"
+    },
+    "fastlineInfo": "Bei «Fast Line» Bestellung bis 15 Uhr steht die Ware am nächsten Tag zur Abholung oder Auslieferung bereit. Dieser Service erfolgt ohne Zuschlag.\n«Fast Line» kann nur garantiert werden bei Bestellungen von:\n - smartLED Leisten\n - Versand mit DHL (Länge Leuchte <4m) oder Selbstabholer\n - Maximale Auftragsgrösse von 10 smartLED Leuchten\n - IP67 Verguss ist nicht möglich (zu lange Trocknungszeit)",
+    "AGB": "http://smarterion.ch/index.php/de/ueber-uns/agbs",
+    "stockMax": 100,
+    "styling": {
+      "colorGreen": "#93C11C",
+      "colorGray": "#5C5B5B"
+    }
+  },
+  "Server": {
+    "attachmentPath": "",
+    "mail": {
+      "Hosting": {
+        "Host": "",
+        "Username": "",
+        "Password": "",
+        "Port": ""
+      },
+      "From": "konfigurator@smarterion.ch",
+      "SendTo": "konfigurator@smarterion.ch",
+      "TextPrice": "PREIS TOTAL exkl. MWST & exkl. Versand (CHF)",
+      "AttachCsv": false,
+      "PdfHeader": false
+    },
+    "addressFooter": {
+      "company": "smarterion ag",
+      "address": "| Zeughausstrasse 10 | 8887 Mels | Switzerland",
+      "phone": "| T +41 81 511 21 33 |",
+      "mailOrder": "bestellung@smarterion.ch",
+      "webpage": "www.smarterion.ch"
+    },
+    "vRGArtikel": "700210"
+  }
+}

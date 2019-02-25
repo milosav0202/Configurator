@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col">
+    <h2>{{'ORDERS' | translate}} <i class="material-icons renew"  (click)="contentLoaded = false; loadData()">autorenew</i></h2>
+  </div>
+  <div class="col-md-auto">
+    <mat-form-field style="width: 300px">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{'SEARCH' | translate}}">
+    </mat-form-field>
+  </div>
+  <div class="col col-lg-2" style="margin-right: 20px">
+    <select  id="name" class="form-control mx-sm-3 custom-select">
+      <option *ngFor='let center of centers' [ngValue]="center">{{center}}</option>
+    </select>
+  </div>
+</div>
+<div *ngIf="!contentLoaded">
+  <mat-progress-spinner style="margin:20% auto;" [mode]="'indeterminate'"></mat-progress-spinner>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="contentLoaded" multiTemplateDataRows>
+
+    <ng-container matColumnDef="orderNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Auftragsnummer' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element" class="order-number">
+        <h6>{{element.orderNumber}}</h6>
+        <i class="material-icons renew"  (click)="openPopupRenew(element.orderNumber)">autorenew</i>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Auftragstyp' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element"> {{element.orderType}}
+        <span style="display:block;text-overflow: ellipsis;width: 300px;overflow: hidden; white-space: nowrap"> {{element.Referenztext}} </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deliver">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Liefertermin' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element" class="deliver">
+        <span style="margin-bottom: 10px">{{element.deliver}}</span>
+        <img class="tcpStateImage" src="{{getTransportImage(element.transport)}}">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="oEstimatedTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Geplante Zeit [h]' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element"> {{element.oEstimatedTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="requiredTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Benotigte Zeit [h]' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element"> {{element.requiredTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalSW">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Preis' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element"> {{element.TotalSW}} </td>
+    </ng-container>
+
+    <ng-container *ngFor="let station of appConfig.stations" matColumnDef="{{station.name}}">
+      <th mat-header-cell *matHeaderCellDef> {{station.name}} </th>
+      <td nowrap mat-cell *matCellDef="let element">
+        <img class="tcpStateImage" src="{{getTcpStateImage(element, station.key)}}">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="oTcpState">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > {{'Auftrag' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element" >
+        <img class="tcpStateImage" src="{{getTcpStateImage(element.oTcpState)}}">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'Action' | translate}} </th>
+      <td nowrap mat-cell *matCellDef="let element" class="action">
+        <button class="btn" style="margin-right: 10px"><mat-icon>play_arrow</mat-icon></button>
+        <button class="btn" style="margin-right: 10px"><mat-icon>edit</mat-icon></button>
+        <button class="btn"><mat-icon>place</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+        <!--<div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="element-tracker">
+            <ul class="progress-tracker">
+              <li class="progress-step" [ngClass]="{'is-complete': i <= this.rmaStates.indexOf(element.state), 'is-todo': i > this.rmaStates.indexOf(element.state) }"  *ngFor="let state of rmaStates; let i = index">
+                <span>{{ state.toUpperCase() | translate}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>-->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+  </table>
+
+  <mat-paginator [pageSize]="[11]" showFirstLastButtons></mat-paginator>
+</div>

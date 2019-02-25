@@ -1,0 +1,15 @@
+<div class="aside">
+  <h2>{{'OVERVIEW' | translate}}</h2>
+  <app-items-view [overviewData]="product"></app-items-view>
+  <div class="row element">
+    <input [(ngModel)]="product.positionName" class="dropdown" type="text" list="listPosition" placeholder="Position Name">
+    <datalist id="listPosition">
+      <option *ngFor="let pos of order.positions">{{pos.name | translate}}</option>
+    </datalist>
+  </div>
+  <div class="row add-button-container" >
+    <button type="button" *ngIf="!product.edit" class="btn add-busket-button" [ngStyle]="{'background-color': color}" (click)="addToBusket()">{{'ADD_TO_BASKET' | translate}}</button>
+    <button type="button" *ngIf="product.edit" class="btn" [ngStyle]="{'background-color': color}" (click)="updateProduct()">{{'UPDATE' | translate}}</button>
+    <button type="button" *ngIf="product.edit" class="btn" [ngStyle]="{'background-color': color}" (click)="cancel()">{{'CANCEL' | translate}}</button>
+  </div>
+</div>

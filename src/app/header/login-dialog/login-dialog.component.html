@@ -1,0 +1,99 @@
+<div class="container-fluid container">
+  <mat-tab-group>
+    <mat-tab label="{{'LOGIN' | translate}}">
+      <div class="formDiv">
+        <div class="pwSent" *ngIf="checkMail">
+          <h2>{{'CHECK_MAIL_WITH_NEW_PASSWORD' | translate}}</h2>
+          <div><i class="material-icons">email</i></div>
+          <div><i class="material-icons float-left" style="cursor: pointer" (click)="checkMail = false">keyboard_backspace</i></div>
+        </div>
+        <form *ngIf="!checkMail" name="form" (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm" novalidate class="form">
+          <div class="form-group" [ngClass]="{'error': userErrors.mail === 'error'}">
+            <input placeholder="{{'EMAIL' | translate}}" type="email" class="form-control" name="mailReg" [(ngModel)]="user.mail" #mail="ngModel" [ngClass]="{ 'is-invalid': form.submitted && mail.invalid }" required />
+            <div *ngIf="form.submitted && mail.invalid" class="invalid-feedback">
+              <div *ngIf="mail.errors.required">{{'EMAIL_IS_REQUIRED' | translate}}</div>
+              <div *ngIf="mail.errors.email">{{'ENTER_VALID_EMAIL' | translate}}</div>
+            </div>
+          </div>
+          <div class="form-group" [ngClass]="{'error': userErrors.password === 'error'}">
+            <input placeholder="{{'PASSWORD' | translate}}" type="password" class="form-control" name="passwordReg" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{ 'is-invalid': form.submitted && password.invalid }" required minlength="6" />
+            <div *ngIf="form.submitted && password.invalid" class="invalid-feedback">
+              <div *ngIf="password.errors.required">{{'PASSWORD_IS_REQUIRED' | translate}}</div>
+              <div *ngIf="password.errors.minlength">{{'PASSWORD_MIN6_CHARACTERS' | translate}}</div>
+            </div>
+          </div>
+          <div class="form-group" style="text-align: center">
+            <mat-checkbox [(ngModel)]="saveLogin" name="deliverAddress">{{'SAVE_LOGIN' | translate}}</mat-checkbox>
+          </div>
+          <div class="form-group" style="text-align: center">
+            <a (click)="sendNewPassword()">{{'FORGOT_PASSWORD' | translate}}</a>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn width100" [disabled]="loading">{{'LOGIN' | translate}} <i *ngIf="loading" class="fa fa-refresh fa-spin"></i></button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="{{'LOGIN_AS_GUEST' | translate}}">
+      <div class="formDiv">
+          <form name="form" (ngSubmit)="formGuest.form.valid && onSubmitAsGuest()" #formGuest="ngForm" novalidate>
+            <div class="form-group">
+              <input type="text" placeholder="{{'FIRSTNAME' | translate}}" class="form-control" name="firstNameGuest" [(ngModel)]="user.firstname" #firstNameGuest="ngModel" [ngClass]="{ 'is-invalid': formGuest.submitted && firstNameGuest.invalid }" required />
+              <div *ngIf="formGuest.submitted && firstNameGuest.invalid" class="invalid-feedback">
+                <div *ngIf="firstNameGuest.errors.required">{{'FIRSTNAME_IS_REQUIRED' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="{{'LASTNAME' | translate}}" class="form-control" name="lastNameGuest" [(ngModel)]="user.lastname" #lastNameGuest="ngModel" [ngClass]="{ 'is-invalid': formGuest.submitted && lastNameGuest.invalid }" required />
+              <div *ngIf="formGuest.submitted && lastNameGuest.invalid" class="invalid-feedback">
+                <div *ngIf="lastNameGuest.errors.required">{{'LASTNAME_IS_REQUIRED' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="{{'EMAIL' | translate}}" class="form-control" name="mailGuest" [(ngModel)]="user.mail" #mailGuest="ngModel" [ngClass]="{ 'is-invalid': formGuest.submitted && mailGuest.invalid }" required />
+              <div *ngIf="formGuest.submitted && mailGuest.invalid" class="invalid-feedback">
+                <div *ngIf="mailGuest.errors.required">{{'EMAIL_IS_REQUIRED' | translate}}</div>
+                <div *ngIf="mailGuest.errors.email">{{'ENTER_VALID_EMAIL' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn width100">{{'LOGIN_AS_GUEST' | translate}}</button>
+            </div>
+          </form>
+        </div>
+    </mat-tab>
+    <mat-tab label="{{'REGISTER' | translate}}">
+      <div class="formDiv">
+        <div class="pwSent" *ngIf="checkMailReg">
+          <h2>{{'INQUERY_FOR_REGISTRATION_SENT' | translate}}</h2>
+          <div><i class="material-icons">email</i></div>
+          <div><i class="material-icons float-left" style="cursor: pointer" (click)="checkMailReg = false">keyboard_backspace</i></div>
+        </div>
+          <form name="form"  *ngIf="!checkMailReg" (ngSubmit)="formUnReg.form.valid && onSubmitRegister()" #formUnReg="ngForm" novalidate>
+            <div class="form-group">
+              <input type="text" placeholder="{{'FIRSTNAME' | translate}}" class="form-control" name="firstNameUnReg" [(ngModel)]="user.firstname" #firstNameUnReg="ngModel" [ngClass]="{ 'is-invalid': formUnReg.submitted && firstNameUnReg.invalid }" required />
+              <div *ngIf="formUnReg.submitted && firstNameUnReg.invalid" class="invalid-feedback">
+                <div *ngIf="firstNameUnReg.errors.required">{{'FIRSTNAME_IS_REQUIRED' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="{{'LASTNAME' | translate}}" class="form-control" name="lastNameUnReg" [(ngModel)]="user.lastname" #lastNameUnReg="ngModel" [ngClass]="{ 'is-invalid': formUnReg.submitted && lastNameUnReg.invalid }" required />
+              <div *ngIf="formUnReg.submitted && lastNameUnReg.invalid" class="invalid-feedback">
+                <div *ngIf="lastNameUnReg.errors.required">{{'LASTNAME_IS_REQUIRED' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="{{'EMAIL' | translate}}" class="form-control" name="mailUnReg" [(ngModel)]="user.mail" #mailUnReg="ngModel" [ngClass]="{ 'is-invalid': formUnReg.submitted && mailUnReg.invalid }" required />
+              <div *ngIf="formUnReg.submitted && mailUnReg.invalid" class="invalid-feedback">
+                <div *ngIf="mailUnReg.errors.required">{{'EMAIL_IS_REQUIRED' | translate}}</div>
+                <div *ngIf="mailUnReg.errors.email">{{'ENTER_VALID_EMAIL' | translate}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn width100">{{'REGISTER' | translate}}</button>
+            </div>
+          </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

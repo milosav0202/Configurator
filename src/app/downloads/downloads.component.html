@@ -1,0 +1,34 @@
+<div class="container-fluid content">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <div class="containerTable">
+            <table mat-table [dataSource]="dataSource">
+            <!-- Position Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}}
+                  <a href="{{element.src}}" download><i class="material-icons float-right">cloud_download</i></a>
+                  <a href="{{element.src}}" target="_blank" [hidden]="!element.name.toUpperCase().includes('.PDF')"><i class="material-icons float-right" style="margin-right: 10px">aspect_ratio</i></a>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-2">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

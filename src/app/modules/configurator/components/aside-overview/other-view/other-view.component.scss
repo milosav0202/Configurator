@@ -1,0 +1,25 @@
+.imgSettings{
+    height: 50px;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    
+    li{
+        margin-right: 5px;
+        display: inline-block;
+        height: 50px;
+        text-align: center;
+        img {
+            max-height: 100%;
+        }
+    }
+}
+
+.divider-thin {
+    border-width: 1px;
+    margin: 5px 0px;
+}
+.divider-thick {
+    border-width: 3px;
+    margin: 5px 0px;
+}

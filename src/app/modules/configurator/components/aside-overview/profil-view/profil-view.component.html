@@ -1,0 +1,40 @@
+<div class="profil-view-content">
+  <div class="row overview-content">
+    <div class="col-md-6 col-sm-8 col-9 profilType">
+      <h3>{{itemData?.artikel?.Z_Profiltyp | translate}}</h3>
+    </div>
+    <div class="col-md-6 col-sm-4 col-3">
+      <app-spinner [value]="itemData?.count" [item]="itemData"></app-spinner>
+    </div>
+  </div>
+  <mat-divider class="divider-thin"></mat-divider>
+  <div class="row">
+    <ul class="settingsImages">
+      <li *ngFor="let img of itemData?.settingsImage">
+        <img [hidden]="!img.source" class="imgProduct" src="{{img.source}}" id="{{img.source}}" alt="">
+      </li>
+    </ul>
+    <div class="datasheets">
+      <ul class="imgSettings" *ngIf="itemData?.showDatasheets">
+        <li *ngIf="itemData?.artikel?.DS">
+          <a target="_blank" href="{{itemData?.artikel?.DS}}">
+            <img src="assets/configurator/pdf.png" title="Produkt Datenblatt">
+          </a>
+        </li>
+        <li *ngIf="itemData?.artikel?.LDT">
+          <a target="_blank" href="{{itemData?.artikel?.LDT}}">
+            <img src="assets/configurator/ldt.png" title="LDT Datenblatt">
+          </a>
+        </li>
+        <li *ngIf="itemData?.artikel?.AT">
+          <a (click)="openDialogShowAt(itemData.artikel.AT)">
+            <img src="assets/configurator/txt.png" title="Txt Datenblatt">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <mat-divider class="divider-thin"></mat-divider>
+  <div class="length1">{{'LENGTHL1' | translate}}<span>: {{itemData?.lengthL1}}<span> {{itemData?.unitL1}}</span></span></div>
+  <mat-divider class="divider-thick"></mat-divider>
+</div>

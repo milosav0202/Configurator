@@ -1,0 +1,49 @@
+[
+  {
+    "id": 0,
+    "number": "RMA_2342342523",
+    "user": "johnDoe@company.ch",
+    "date": "12-11-2018 16:00",
+    "detail": [
+                  {"name": "PARTNR_DELIVERYNR_INVOICENR", "value": ""},
+                  {"name": "FAILURE", "value": ""},
+                  {"name": "FAILURE_DESCRIPTION", "value":  ""},
+                  {"name": "NUMBER_OF_ELEMENTS", "value": ""},
+                  {"name": "PARTNUMBER_OF_ELEMENTS", "value": ""},
+                  {"name": "TIME_OF_ERROR_DETECTION", "value": ""}
+                ],
+    "state": "SUBMITED"
+  },
+  {
+      "id": 2,
+    "number": "RMA_99999999",
+    "user": "marvelDoe@company.ch",
+      "date": "25-11-2018 11:00",
+    "detail": [
+                  {"name": "PARTNR_DELIVERYNR_INVOICENR", "value": ""},
+                  {"name": "FAILURE", "value": ""},
+                  {"name": "FAILURE_DESCRIPTION", "value":  ""},
+                  {"name": "NUMBER_OF_ELEMENTS", "value": ""},
+                  {"name": "PARTNUMBER_OF_ELEMENTS", "value": ""},
+                  {"name": "TIME_OF_ERROR_DETECTION", "value": ""}
+                ],
+      "state": "GOODS_RECEIVED"
+  }
+,
+  {
+    "id": 6,
+    "number": "RMA_54634684",
+    "user": "spiderDoe@company.ch",
+    "date": "25-11-2018 11:00",
+    "detail": [
+      {"name": "PARTNR_DELIVERYNR_INVOICENR", "value": ""},
+      {"name": "FAILURE", "value": ""},
+      {"name": "FAILURE_DESCRIPTION", "value":  ""},
+      {"name": "NUMBER_OF_ELEMENTS", "value": ""},
+      {"name": "PARTNUMBER_OF_ELEMENTS", "value": ""},
+      {"name": "TIME_OF_ERROR_DETECTION", "value": ""}
+    ],
+    "state": "GOODS_SENT",
+    "deliverCode": "https://myparcel.ch.dhl.com/index.php?LANG=DE&PID=JJD000059001859162741"
+  }
+]

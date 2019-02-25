@@ -1,0 +1,117 @@
+{
+  "elements": {
+    "outsideProfil": {
+      "image": "AussenProfil.png",
+      "title": "OUSIDE_PROFIL",
+      "text": "CHOOSE_OUSIDE_PROFIL",
+      "type": "slider",
+      "binding": "profil",
+      "relatedItem": "outsideProfil"
+    },
+    "color": {
+      "image": "LED.png",
+      "title": "LED",
+      "text": "CHOOSE_COLOR_INDIVIDUALLY",
+      "type": "slider",
+      "binding": "profil",
+      "variable": "color",
+      "reloadSliders": ["power"]
+    },
+    "cover": {
+      "image": "Abdeckung.png",
+      "title": "COVER",
+      "text": "CHOOSE_COVER",
+      "type": "slider",
+      "binding": "profil",
+      "variable": "cover"
+    },
+    "power": {
+      "image": "Leistung.png",
+      "title": "POWER",
+      "text": "CHOOSE_POWER",
+      "type": "slider",
+      "binding": "profil",
+      "variable": "power",
+      "reloadSliders": ["ip", "features", "cableTab"]
+    },
+    "ip": {
+      "image": "IpSchutz.png",
+      "title": "IP_PROTECTION",
+      "text": "CHOOSE_IP_PROTECTION",
+      "type": "slider",
+      "binding": "profil",
+      "variable": "ipProtection",
+      "relatedItem": "ip"
+    },
+    "lengthL1": {
+      "image": "Laenge.png",
+      "title": "LENGTH",
+      "text": "ENTER_PROFILE_LENGTH",
+      "type": "input",
+      "binding": "profil",
+      "variable": "lengthL1",
+      "unit": "mm",
+      "reloadSliders": ["powerSupply"]
+    },
+    "cableTab": {
+      "image": "Kabelabgang.png",
+      "title": "CABLETAB",
+      "text": "DEFINE_CABLETAB",
+      "type": "slider",
+      "binding": "profil",
+      "variable": "cableTab",
+      "relatedItem": "cable"
+    },
+    "lengthL2": {
+      "image": "PositionKabelabgang.png",
+      "title": "POSITION_CABLETAB",
+      "text": "DEFINE_POSITION_CABLETAB",
+      "type": "input",
+      "binding": "profil",
+      "relatedItem": "cable",
+      "variable": "lengthL2",
+      "unit": "mm"
+    },
+    "lengthL3": {
+      "image": "Kabellaenge.png",
+      "title": "CABLELENGTH",
+      "text": "DEFINE_CABLE_LENGTH",
+      "type": "input",
+      "binding": "profil",
+      "relatedItem": "cable",
+      "variable": "lengthL3",
+      "unit": "m"
+    },
+    "powerSupply": {
+      "image": "Netzteil.png",
+      "title": "POWERSUPPLY",
+      "text": "CHOOSE_POWERSUPPLY",
+      "type": "slider",
+      "reloadSliders": ["control"],
+      "relatedItem": "powerSupply"
+    },
+    "control": {
+      "image": "Steuereinheit.png",
+      "title": "CONTROL",
+      "text": "CHOOSE_CONTROL",
+      "type": "slider",
+      "relatedItem": "control"
+    },
+    "features": {
+      "image": "Zubehoer.png",
+      "title": "FEATURES",
+      "text": "CHOOSE_FEATURES",
+      "type": "slider",
+      "relatedItem": "features"
+    }
+  },
+  "settings": {
+    "default": ["color", "power", "ip", "lengthL1", "cableTab", "lengthL2", "lengthL3", "powerSupply%{\"suggestion\":true}", "control", "features"] ,
+    "1.12": ["color","cover", "power", "ip", "lengthL1", "cableTab", "lengthL2", "lengthL3", "powerSupply", "control", "features"] ,
+    "1.31": ["color", "power", "lengthL1", "cableTab%{\"selection\":[\"NoItem;/noItem/CableTab.png\",\"PB;/cabletab/PB_0.png\"]}", "lengthL2", "powerSupply%{\"selection\":[\"DALI / Push;/powersupply/DALI_PUSH.png\", \"on_off;/powersupply/on_off.png\"]}"],
+    "1.32": ["outsideProfil%{\"selection\":[\"1000716;/outsideProfil/1000716.png\",\"1000717;/outsideProfil/1000717.png\",\"1001656;/outsideProfil/1001656.png\"]}","color", "power", "ip", "lengthL1", "cableTab%{\"selection\":[\"NoItem;/noItem/CableTab.png\",\"PB;/cabletab/PB_0.png\"]}", "lengthL2", "powerSupply%{\"selection\":[\"DALI / Push;/powersupply/DALI_PUSH.png\", \"on_off;/powersupply/on_off.png\"]}"] ,
+    "1.33": ["color", "power", "lengthL1", "cableTab%{\"selection\":[\"NoItem;/noItem/CableTab.png\",\"PB;/cabletab/PB_0.png\"]}", "lengthL2", "powerSupply%{\"selection\":[\"DALI / Push;/powersupply/DALI_PUSH.png\", \"on_off;/powersupply/on_off.png\"]}"]
+
+  },
+  "imageSourceSettings": "assets/configurator/settings/"
+}

@@ -1,0 +1,12 @@
+<div class="container-fluid container over-max-alert justify-content-end">
+  <div mat-dialog-content class="alert-content">
+    <span>{{"Your request requires a multi-part LED profile." | translate}}</span><br />
+    <span>{{"Unfortunately, this can not yet be compiled completely via the configurator." | translate}}</span><br />
+    <span>{{"Please enter the desired length and send us an offer request (direct order not possible)." | translate}}</span><br />
+    <span>{{"After a technical review and any consultation, we will send you a concrete offer immediately." | translate}}</span>
+  </div>
+  <div mat-dialog-actions class="row alert-buttons">
+    <button [mat-dialog-close]="'ok'">{{'OK' | translate}}</button>
+    <button [mat-dialog-close]="'cancel'">{{'CANCEL' | translate}}</button>
+  </div>
+</div>

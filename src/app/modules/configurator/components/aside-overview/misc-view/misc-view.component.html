@@ -1,0 +1,38 @@
+<div class="misc-view-content">
+  <div class="row overview-content">
+    <div class="col-md-6 col-sm-8 col-9">
+      <h3>{{itemData?.artikel?.Bezeichnung1| translate}}</h3>
+    </div>
+    <div class="col-md-6 col-sm-4 col-3">
+      <app-spinner [value]="itemData?.count" [item]="itemData"></app-spinner>
+    </div>
+  </div>
+  <mat-divider class="divider-thin"></mat-divider>
+  <div class="row">
+    <ul class="settingsImages">
+      <li *ngIf="itemData?.artikel?.Bild">
+        <img class="imgProduct" src="{{itemData?.artikel?.Bild}}" alt="">
+      </li>
+    </ul>
+    <div class="datasheets">
+      <ul class="imgSettings">
+        <li *ngIf="itemData?.artikel?.DS">
+          <a target="_blank" href="{{itemData?.artikel?.DS}}">
+            <img src="assets/configurator/pdf.png" title="Produkt Datenblatt">
+          </a>
+        </li>
+        <li *ngIf="itemData?.artikel?.LDT">
+          <a target="_blank" href="{{itemData?.artikel?.LDT}}">
+            <img src="assets/configurator/ldt.png" title="LDT Datenblatt">
+          </a>
+        </li>
+        <li *ngIf="itemData?.artikel?.AT">
+          <a (click)="openDialogShowAt(itemData.artikel.AT)">
+            <img src="assets/configurator/txt.png" title="Txt Datenblatt">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <mat-divider class="divider-thick"></mat-divider>
+</div>

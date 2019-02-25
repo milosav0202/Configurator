@@ -1,0 +1,164 @@
+.content{
+  padding-top: 20px;
+  h1 {
+    color: #000000;
+  }
+}
+
+.aside{
+  padding: 0 50px;
+
+  input[type="text"], input[type="password"], input[type="email"], textarea, option {
+    font-size: 32px;
+    background-color: #5C5B5B;
+    color: white;
+    padding: 5px;
+    text-align: left;
+    border-width: 0;
+    border-radius: 0;
+    width: 100%;
+    border-color: transparent;
+    -webkit-appearance: none;
+    line-height: normal;
+  }
+
+  input[type="text"], input[type="password"], input[type="email"] {
+    height: 40px;
+  }
+}
+
+
+.accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  li {
+    padding: 5px 0;
+
+    .icon {
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+  }
+}
+
+.position {
+  font-size: 25px;
+}
+
+.product {
+  font-size: 23px;
+  margin-left: 20px;
+  margin-top: 10px;
+  a {
+    cursor: pointer;
+    font-size: 18px;
+    color: #000000;
+  }
+}
+
+.items {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+
+.divider-thick {
+  border-width: 3px;
+  border-color: #93C11C;
+}
+
+.divider-thin {
+  border-width: 1px;
+  border-color: #93C11C;
+}
+
+.imgSettings{
+  height: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 30px;
+
+  li{
+    margin-right: 5px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.datasheets {
+  right: 0;
+  position: absolute;
+  margin-right: 20px;
+}
+.misc {
+  padding: 10px;
+}
+
+.overview-content {
+  padding: 5px 0;
+}
+
+.hide{
+  display: none;
+}
+
+.fixed-overview {
+  position: fixed;
+  left: 57%;
+}
+
+.fixed-bottom{
+  width: 1100px;
+  background-color: #E6E6E6;
+  z-index: 999;
+
+  .divider-thick {
+    border-color: #5C5B5B;
+  }
+}
+
+.priceBottom{
+  color: #5C5B5B;
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+.margin_r20{
+  margin-right: 20px;
+}
+
+@media print {
+  @page {
+    size: A4;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+
+  .content {
+    width: 2650px;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .aside {
+    display: none;
+  }
+
+  app-navigation {
+    display: none;
+  }
+}

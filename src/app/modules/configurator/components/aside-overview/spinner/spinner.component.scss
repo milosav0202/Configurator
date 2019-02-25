@@ -1,0 +1,65 @@
+.custom-spinner{
+    float: right;
+    position: relative;
+    margin-right: 30px;
+    height: 50px;
+
+    .price{
+      float: left;
+       line-height: 50px;
+       color: #5C5B5B;
+      margin-right: 10px;
+     }
+
+    .input-spinner{
+        width: 55px;
+        font-size: 32px;
+        height: 100%;
+        background-color: #5C5B5B;
+        color: white;
+        padding: 5px;
+        text-align: center;
+        border-width: 0px;
+        border-color: transparent;
+        -webkit-appearance: none;
+        line-height: normal;
+    }
+  
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+  
+    
+    button{
+        position: absolute;
+        margin: 0px 1px;
+        width: 20px;
+        height: 24px;
+        padding: 1px 0px;
+        border: 0px;
+        left: 100%;
+        text-align: center;
+        cursor: pointer;
+        i {
+            font-size: 15px;
+            font-weight: bolder;
+            color: #FFFFFF;
+            position: absolute;
+            top: 5px;
+            left: 3px;
+        }
+    }
+    button:first-child {
+        top: 0px;
+    }
+    button:last-child{
+        margin-top: 26px;
+    }
+}
+

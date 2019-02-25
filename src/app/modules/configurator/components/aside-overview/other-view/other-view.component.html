@@ -1,0 +1,15 @@
+<div [hidden]="!itemData?.artikel">
+  <div class="row">
+    <div class="col-md-6 col-sm-8 col-9">
+      <ul class="imgSettings">
+        <li>
+          <img src="{{itemData?.artikel?.Bild}}" alt="">
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-sm-4 col-3">
+      <app-spinner [value]="itemData.count" [item]="itemData" [minValue]="itemData.bind ? itemData.count : 1" [maxValue]="itemData.bind ? itemData.count : null"></app-spinner>
+    </div>
+  </div>
+  <mat-divider class="divider-thick"></mat-divider>
+</div>

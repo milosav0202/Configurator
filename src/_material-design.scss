@@ -1,0 +1,47 @@
+@import '_variables.scss';
+
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  background-color: $colorGreen;
+  font-family: 'LTProBdCn';
+  color: white;
+  font-weight: bold;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $colorGreen;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar, .mat-input{
+  background: $colorGreen;
+}
+
+mat-form-field.mat-focused .mat-form-field-label {
+  color: $colorGreen !important;
+}
+
+mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: $colorGreen !important;
+}
+.mat-checkbox .mat-checkbox-frame {
+  border-color: $colorGray;
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+  background-color: $colorGray !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: $colorGray;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $colorGray;
+}
+
+.mat-ripple-element {
+  background-color: transparent !important;
+}
+
+.mat-sort-header-container {
+  justify-content: center;
+}

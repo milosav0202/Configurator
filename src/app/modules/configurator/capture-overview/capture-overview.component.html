@@ -1,0 +1,6 @@
+<div class="content">
+  <div *ngFor="let capture of captures" class="div-capture">
+    <a [routerLink]="['/configurator/shop/' + capture['GruppeLAG']]"><img class="img-fluid" src="{{capture['CapImage']}}"></a>
+  </div>
+</div>
+

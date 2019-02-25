@@ -1,0 +1,133 @@
+table {
+    width: 100%;
+}
+
+.mat-cell, .mat-header-cell {
+    border: 1px solid rgba(0,0,0,.12);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-header-cell {
+    font-size: 10px;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+}
+
+.order-number {
+    padding-right: 28px;
+    position: relative;
+
+    i {
+        font-size: 15px;
+        background-color: #93C11C;
+        padding: 2px;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: calc(50% - 10px);
+    }
+}
+
+.deliver {
+    color: rgb(255, 181, 173);
+    width: 130px;
+
+    i {
+        margin-left: 10px;
+        color: black;
+        font-size: 20px;
+        position: relative;
+        top: 5px;
+    }
+}
+
+div.tcp-state {
+    i {
+        font-size: 40px;
+    }
+
+    &.init {
+        color: rgb(255, 43, 43);
+        border: 1px solid black;
+        width: 21px;
+        height: 21px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        i {
+            font-size: 35px;
+            margin: -7px -8px
+        }
+    }
+
+    &.wait {
+        color: rgb(255, 106, 0);
+    }
+
+    &.inprogress {
+        color: rgb(255, 106, 0);
+    }
+
+    &.done {
+        color: rgb(147, 193, 28);
+    }
+
+    &.stopped {
+        color: rgb(255, 43, 43);
+    }
+
+    &.assigned {
+        color:  black;
+        border: 1px solid black;
+        width: 21px;
+        height: 21px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        i {
+            font-size: 20px;
+        }
+    }
+
+    &.notexist {
+        color: black;
+    }
+}
+
+.action {
+    padding: 0px;
+    width: 270px;
+
+    div {
+        height: 46px;
+        border-right: 1px solid rgba(0,0,0,.12);
+        display: inline-table;
+
+        .action-button {
+            margin: 10px;
+            background-color: #93C11C;
+            padding: 5px 10px;
+            color: white;
+            border-width: 0;
+            font-size: 12px;
+            font-weight: bold;
+            -webkit-appearance: none;
+        }
+
+        &:last-of-type {
+            border-right: none !important;
+        }
+    }
+}
+
+td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
+    padding-right: 0px;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 0px;
+}

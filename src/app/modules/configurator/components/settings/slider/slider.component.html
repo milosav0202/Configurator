@@ -1,0 +1,11 @@
+<div class="container settings-content" [ngStyle]="{'background-image': 'url(' + imageSourceSettings + settingsData.image + ')'}">
+  <div class="row">
+    <h3>{{settingsData.title | translate}}</h3>
+  </div>
+  <div class="row text">
+    <h4>{{settingsData.text | translate}}</h4><h4 *ngIf="settingsData.params.suggestion">{{'OUR_SUGGESTION_IN_GREEN' | translate}}</h4>
+  </div>
+  <div>
+    <app-carousel [imagesData]="sliderImages" [multiSelect]="settingsData.id === 'features'" (imgClick)="imageItemClick($event)"></app-carousel>
+  </div>
+</div>
